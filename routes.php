@@ -1,1 +1,1 @@
-Route::get('committeeList', 'UserHomeController@committeeList');
+Route::get('committeeList', 'UserController@committeeList');
