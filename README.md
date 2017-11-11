@@ -6,10 +6,6 @@ Factory constructs a new service using a function with zero or more arguments (t
 In JS file, where you define the controller, initialize a factory call there by below code (if you are creating controllers in customangular.js file itself) :
 
      angular.module('app').controller('HomeController', ['$http', 'userfactory', '$scope','$timeout', '$rootScope', '$filter', function($http, userfactory, $scope, $timeout, $rootScope, $filter) {
-      console.log('home controller loaded');
-      $('.main-menu').find('li').removeClass('active');
-      $('#menu-home').addClass('active');
-
       userfactory.getCommitteeList().then(function(response){
                 if(response.data.success)
                 {
@@ -24,7 +20,6 @@ Createing a factory.js
     angular.module('app').factory('userfactory', ['$http',
         function ($http) {
             getCommitteeList: function () {
-                    $('.spinner-loader').show();
                     var promise = $http.get('committeeList').then(function (response) {
                         return response;
                     }, function (error) {
